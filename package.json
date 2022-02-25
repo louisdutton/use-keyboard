@@ -1,0 +1,18 @@
+{
+  "name": "use-keyboard",
+  "version": "1.0.0",
+  "description": "An easy-to-use keyboard interface for react applications.",
+  "main": "index.js",
+  "author": "Louis Dutton",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.39",
+    "typescript": "^4.5.5"
+  },
+  "dependencies": {
+    "react": "^17.0.2"
+  }
+}
