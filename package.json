@@ -6,6 +6,15 @@
   "types": "./lib/index.d.ts",
   "author": "Louis Dutton",
   "license": "MIT",
+  "keywords": ["react", "react-hook", "input", "keyboard"],
+  "homepage": "https://github.com/louisdutton/use-keyboard#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/louisdutton/use-keyboard.git" 
+  },
+  "bugs": {
+    "url": "https://github.com/louisdutton/use-keyboard/issues"
+  },
   "scripts": {
     "prepublish": "tsc"
   },
