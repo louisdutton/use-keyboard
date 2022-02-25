@@ -2,11 +2,12 @@
   "name": "use-keyboard",
   "version": "1.0.0",
   "description": "An easy-to-use keyboard hook for react applications.",
-  "main": "index.js",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
   "author": "Louis Dutton",
   "license": "MIT",
   "scripts": {
-    "build": "tsc"
+    "prepublish": "tsc"
   },
   "dependencies": {
     "react": "^17.0.2"
