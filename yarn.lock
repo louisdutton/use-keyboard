@@ -3468,6 +3468,14 @@ uri-js@^4.2.2:
   dependencies:
     punycode "^2.1.0"
 
+use-keyboard@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/use-keyboard/-/use-keyboard-1.0.0.tgz#7001c33dc631181578892f9631c1e584136954c8"
+  integrity sha512-7+X03HMb+pVcBvLyrM5SjdRwIvvWkxBhO33iRtf/kQmXWV0m+hsiAApgcNbfk+gBeoVjVG23FEDjKrkVJIRpuw==
+  dependencies:
+    react "^17.0.2"
+    react-dom "^17.0.2"
+
 v8-compile-cache@^2.0.3:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/v8-compile-cache/-/v8-compile-cache-2.3.0.tgz#2de19618c66dc247dcfb6f99338035d8245a2cee"
