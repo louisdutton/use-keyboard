@@ -1,28 +1,57 @@
 {
-  "name": "use-keyboard",
-  "version": "1.0.0",
-  "description": "An easy-to-use keyboard hook for react applications.",
-  "main": "./lib/index.js",
-  "types": "./lib/index.d.ts",
-  "author": "Louis Dutton",
-  "license": "MIT",
-  "keywords": ["react", "react-hook", "input", "keyboard"],
-  "homepage": "https://github.com/louisdutton/use-keyboard#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/louisdutton/use-keyboard.git" 
-  },
-  "bugs": {
-    "url": "https://github.com/louisdutton/use-keyboard/issues"
-  },
-  "scripts": {
-    "prepublish": "tsc"
-  },
-  "dependencies": {
-    "react": "^17.0.2"
-  },
-  "devDependencies": {
-    "@types/react": "^17.0.39",
-    "typescript": "^4.5.5"
-  }
+	"name": "use-keyboard",
+	"version": "1.0.0",
+	"description": "An easy-to-use keyboard hook for react applications.",
+	"main": "./lib/index.js",
+	"types": "./lib/index.d.ts",
+	"files": [
+		"lib/**/*"
+	],
+	"author": "Louis Dutton",
+	"license": "MIT",
+	"keywords": [
+		"react",
+		"react-hook",
+		"input",
+		"keyboard"
+	],
+	"homepage": "https://github.com/louisdutton/use-keyboard#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/louisdutton/use-keyboard.git"
+	},
+	"bugs": {
+		"url": "https://github.com/louisdutton/use-keyboard/issues"
+	},
+	"scripts": {
+		"format": "prettier --write 'src/**/*.ts'",
+		"lint": "eslint src/",
+		"prepublish": "yarn lint && tsc"
+	},
+	"dependencies": {
+		"react": "^17.0.2"
+	},
+	"devDependencies": {
+		"@types/jest": "^27.4.1",
+		"@types/react": "^17.0.39",
+		"@typescript-eslint/eslint-plugin": "^5.12.1",
+		"@typescript-eslint/parser": "^5.12.1",
+		"eslint": "^8.9.0",
+		"eslint-config-prettier": "^8.4.0",
+		"eslint-plugin-react": "^7.29.0",
+		"jest": "^27.5.1",
+		"prettier": "^2.5.1",
+		"ts-jest": "^27.1.3",
+		"typescript": "^4.5.5"
+	},
+	"jest": {
+		"transform": {
+			"^.+\\.(t|j)sx?$": "ts-jest"
+		},
+		"testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+		"moduleFileExtensions": [
+			"ts",
+			"tsx"
+		]
+	}
 }

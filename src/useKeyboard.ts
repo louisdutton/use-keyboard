@@ -3,11 +3,6 @@ import { Key } from "./keys";
 
 type Handler = Partial<Record<Key, () => void>>;
 
-interface Handlers {
-  down: Handler;
-  up: Handler;
-}
-
 interface Options {
   down?: Handler;
   up?: Handler;
