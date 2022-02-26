@@ -3,30 +3,33 @@ import useKeyboard from "../src";
 
 describe("axis function", () => {
   const { result } = renderHook(() => useKeyboard());
-  const { axis, keys } = result.current;
+  const { axis, reset, keys } = result.current;
+
+  const leftDown = new KeyboardEvent("keydown", { code: "ArrowLeft" });
+  const rightDown = new KeyboardEvent("keydown", { code: "ArrowRight" });
+
+  beforeEach(() => {
+    reset();
+  });
 
   it("should return 0 if neither key is held", () => {
-    keys.current = {};
-    expect(axis("ArrowLeft", "ArrowRight")).toEqual(0);
+    expect(axis("ArrowLeft", "ArrowRight")).toBe(0);
   });
 
   it("should return 1 if positive key is held", () => {
-    keys.current = {};
-    keys.current["ArrowRight"] = true;
-    expect(axis("ArrowLeft", "ArrowRight")).toEqual(1);
+    window.dispatchEvent(rightDown);
+
+    expect(axis("ArrowLeft", "ArrowRight")).toBe(1);
   });
 
   it("should return -1 if negative key is held", () => {
-    keys.current = {};
-    keys.current["ArrowLeft"] = true;
-    keys.current["ArrowRight"] = false;
-    expect(axis("ArrowLeft", "ArrowRight")).toEqual(-1);
+    window.dispatchEvent(leftDown);
+    expect(axis("ArrowLeft", "ArrowRight")).toBe(-1);
   });
 
   it("should return 0 if both keys are held", () => {
-    keys.current = {};
-    keys.current["ArrowLeft"] = true;
-    keys.current["ArrowRight"] = true;
-    expect(axis("ArrowLeft", "ArrowRight")).toEqual(0);
+    window.dispatchEvent(leftDown);
+    window.dispatchEvent(rightDown);
+    expect(axis("ArrowLeft", "ArrowRight")).toBe(0);
   });
 });
