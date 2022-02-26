@@ -1,22 +1,7 @@
 import { renderHook, act } from "@testing-library/react-hooks";
 import useKeyboard from "../src";
 
-it("renders", () => {
-  const { result } = renderHook(() => useKeyboard());
-});
-
-//FIXME: fireEvent is not being picked up by hook event listener
-describe("pressed()", () => {
-  const { result, rerender } = renderHook(() => useKeyboard());
-  const { pressed, keys } = result.current;
-
-  it("should return true if key is held", () => {
-    keys.current["ArrowLeft"] = true;
-    expect(pressed("ArrowLeft")).toEqual(true);
-  });
-});
-
-describe("axis()", () => {
+describe("axis function", () => {
   const { result } = renderHook(() => useKeyboard());
   const { axis, keys } = result.current;
 
