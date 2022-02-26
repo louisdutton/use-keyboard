@@ -19,12 +19,15 @@ describe("custom handlers", () => {
     })
   );
 
-  it("should receive custom keydown handler", () => {
+  // console.log(result.current.options);
+
+  it("should call our down handler on keydown", () => {
     window.dispatchEvent(spaceDown);
     expect(downHandler).toBeCalled();
   });
 
-  it("should receive custom keyup handler", () => {
+  // FIXME: upHandler not being called
+  it("should receive our up handler on keyup", () => {
     window.dispatchEvent(spaceUp);
     expect(upHandler).toBeCalled();
   });
