@@ -1,8 +1,13 @@
-import { EventHandler, useCallback, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Key } from "./keys";
 
 type Handler = () => void;
 type HandlerRecord = Partial<Record<Key, Handler>>;
+
+type Options = {
+  down?: HandlerRecord;
+  up?: HandlerRecord;
+};
 
 const defaultOptions = {
   down: {} as HandlerRecord,
@@ -10,21 +15,20 @@ const defaultOptions = {
 };
 
 /** Provides a method of querying the list of currently pressed keys. */
-export const useKeyboard = (options = defaultOptions) => {
+export const useKeyboard = (options?: Options) => {
+  const { up, down } = { ...defaultOptions, ...options };
   const keys = useRef<Record<string, boolean>>({});
 
   const handleDown = ({ code }: KeyboardEvent) => {
     if (!keys.current[code]) keys.current[code] = true;
-    if (code in options.down) {
-      options.down[code as Key]!();
-    }
+    const handler = down[code as Key];
+    if (handler) handler();
   };
 
   const handleUp = ({ code }: KeyboardEvent) => {
     if (keys.current[code]) keys.current[code] = false;
-    if (code in options.up) {
-      options.up[code as Key]!();
-    }
+    const handler = up[code as Key];
+    if (handler) handler();
   };
 
   /** Returns true if all supplied keys are currently pressed. */
@@ -47,5 +51,5 @@ export const useKeyboard = (options = defaultOptions) => {
     };
   }, []);
 
-  return { pressed, axis, keys };
+  return { pressed, axis };
 };
