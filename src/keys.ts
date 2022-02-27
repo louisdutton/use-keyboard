@@ -39,6 +39,25 @@ export type DigitKey =
   | "Digit8"
   | "Digit9";
 
+export type NumpadKey =
+  | "Numpad0"
+  | "Numpad1"
+  | "Numpad2"
+  | "Numpad2"
+  | "Numpad3"
+  | "Numpad4"
+  | "Numpad5"
+  | "Numpad6"
+  | "Numpad7"
+  | "Numpad8"
+  | "Numpad9"
+  | "NumpadAdd"
+  | "NumpadSubtract"
+  | "NumpadMultiply"
+  | "NumpadDivide"
+  | "NumpadDecimal"
+  | "NumpadEnter";
+
 export type FunctionKey = "F1" | "F2" | "F2" | "F3" | "F4" | "F5" | "F6" | "F7" | "F8" | "F9" | "F10" | "F11" | "F12";
 
 export type MiscKey =
@@ -58,7 +77,8 @@ export type MiscKey =
   | "Backspace"
   | "Backquote"
   | "Tab"
-  | "CapsLock";
+  | "CapsLock"
+  | "Escape";
 
 export type ArrowKey = "ArrowUp" | "ArrowDown" | "ArrowLeft" | "ArrowRight";
 
