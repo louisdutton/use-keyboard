@@ -8,27 +8,27 @@ describe("custom handlers", () => {
   const spaceDown = new KeyboardEvent("keydown", { code: "Space" });
   const spaceUp = new KeyboardEvent("keyup", { code: "Space" });
 
-  const { result } = renderHook(() =>
-    useKeyboard({
-      down: {
-        Space: downHandler,
-      },
-      up: {
-        Space: upHandler,
-      },
-    })
-  );
-
-  // console.log(result.current.options);
-
   it("should call our down handler on keydown", () => {
+    const { result } = renderHook(() =>
+      useKeyboard({
+        down: {
+          Space: downHandler,
+        },
+      })
+    );
     window.dispatchEvent(spaceDown);
     expect(downHandler).toBeCalled();
   });
 
-  // FIXME: upHandler not being called
-  // it("should receive our up handler on keyup", () => {
-  //   window.dispatchEvent(spaceUp);
-  //   expect(upHandler).toBeCalled();
-  // });
+  it("should receive our up handler on keyup", () => {
+    const { result } = renderHook(() =>
+      useKeyboard({
+        up: {
+          Space: upHandler,
+        },
+      })
+    );
+    window.dispatchEvent(spaceUp);
+    expect(upHandler).toBeCalled();
+  });
 });
