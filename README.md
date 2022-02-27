@@ -1,6 +1,6 @@
 # useKeyboard
 
-An react hook for handling keyboard input.
+A react hook for handling keyboard input.
 
 > This package is under development and is not production-ready.
 
