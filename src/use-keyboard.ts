@@ -41,10 +41,6 @@ export const useKeyboard = (options?: Options) => {
     return (+pressed(positive) - +pressed(negative)) as -1 | 0 | 1;
   };
 
-  const reset = () => {
-    keys.current = {};
-  };
-
   useEffect(() => {
     window.addEventListener("keydown", handleDown);
     window.addEventListener("keyup", handleUp);
@@ -55,5 +51,5 @@ export const useKeyboard = (options?: Options) => {
     };
   }, []);
 
-  return { pressed, axis, reset, keys: keys.current };
+  return { pressed, axis };
 };
