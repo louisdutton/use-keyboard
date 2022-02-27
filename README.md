@@ -1,6 +1,8 @@
 # useKeyboard
 
-An easy-to-use keyboard hook for react applications.
+An react hook for handling keyboard input.
+
+> This package is under development and is not production-ready.
 
 ## Install
 
@@ -17,12 +19,27 @@ yarn add use-keyboard
 ## Basic usage
 
 ```tsx
-// MyComponent.tsx
-import useKeyboard from "use-keyboard";
+const { pressed } = useKeyboard();
+const spacePressed = pressed("Space");
+```
 
-const MyComponent = () => {
-  const { pressed } = useKeyboard();
+## Axis abstraction
 
-  return <p>Spacebar pressed: {pressed("Space").toString()}</p>;
+```tsx
+  const { axis } = useKeyboard();
+  const horizontal = axis("LeftArrow", "RightArrow");
 };
+```
+
+## Key handlers
+
+```tsx
+const _keyboard = useKeyboard({
+  down: {
+    Space: () => console.log("Spacebar pressed"),
+  },
+  up: {
+    Space: () => console.log("Spacebar released"),
+  },
+});
 ```
